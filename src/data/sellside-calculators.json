@@ -1,0 +1,349 @@
+[
+  {
+    "id": "rpm",
+    "cat": "YLD",
+    "name": "RPM",
+    "relation": "RATIO2",
+    "k": 1000,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Ad revenue",
+        "unit": "$",
+        "d": 2400
+      },
+      {
+        "key": "pageviews",
+        "label": "Pageviews",
+        "unit": "#",
+        "d": 600000
+      },
+      {
+        "key": "rpm",
+        "label": "RPM",
+        "unit": "$",
+        "d": 4
+      }
+    ],
+    "about": "RPM is the ad revenue you earn for every thousand pageviews. It is the publisher's headline yield metric because it captures fill, price and ad density in one number tied to your actual traffic.",
+    "formulaDisplay": "RPM = (Ad revenue ÷ Pageviews) × 1000"
+  },
+  {
+    "id": "seller-ecpm",
+    "cat": "YLD",
+    "name": "Seller eCPM",
+    "relation": "RATIO2",
+    "k": 1000,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Ad revenue",
+        "unit": "$",
+        "d": 1800
+      },
+      {
+        "key": "impressions",
+        "label": "Paid impressions",
+        "unit": "#",
+        "d": 900000
+      },
+      {
+        "key": "ecpm",
+        "label": "eCPM",
+        "unit": "$",
+        "d": 2
+      }
+    ],
+    "about": "Seller eCPM is the effective revenue you earn per thousand paid impressions, whatever the pricing model behind them. It lets you compare CPM, CPC and flat-fee demand on one scale.",
+    "formulaDisplay": "eCPM = (Ad revenue ÷ Paid impressions) × 1000"
+  },
+  {
+    "id": "publisher-arpu",
+    "cat": "YLD",
+    "name": "Publisher ARPU",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Ad revenue",
+        "unit": "$",
+        "d": 54000
+      },
+      {
+        "key": "users",
+        "label": "Unique users",
+        "unit": "#",
+        "d": 1200000
+      },
+      {
+        "key": "arpu",
+        "label": "ARPU",
+        "unit": "$",
+        "d": 0.045
+      }
+    ],
+    "about": "Publisher ARPU is the ad revenue earned per unique user over a period. It shifts the question from how much a page is worth to how much an audience member is worth, which matters for subscriptions and first-party data strategy.",
+    "formulaDisplay": "ARPU = Ad revenue ÷ Unique users"
+  },
+  {
+    "id": "revenue-per-available-ad-slot",
+    "cat": "YLD",
+    "name": "Revenue per Available Ad Slot",
+    "relation": "RATIO2",
+    "k": 1000,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Ad revenue",
+        "unit": "$",
+        "d": 9000
+      },
+      {
+        "key": "slots",
+        "label": "Available ad slots",
+        "unit": "#",
+        "d": 3000000
+      },
+      {
+        "key": "revpas",
+        "label": "Revenue per 1,000 slots",
+        "unit": "$",
+        "d": 3
+      }
+    ],
+    "about": "Revenue per available ad slot measures what every ad opportunity earns, filled or not, quoted per thousand slots. Like RevPAR in hotels, it punishes unsold inventory, so it is the truest read of total yield.",
+    "formulaDisplay": "Revenue per 1,000 slots = (Ad revenue ÷ Available ad slots) × 1000"
+  },
+  {
+    "id": "fill-rate",
+    "cat": "FIL",
+    "name": "Fill Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "filled",
+        "label": "Filled impressions",
+        "unit": "#",
+        "d": 820000
+      },
+      {
+        "key": "requests",
+        "label": "Ad requests",
+        "unit": "#",
+        "d": 1000000
+      },
+      {
+        "key": "fill",
+        "label": "Fill rate",
+        "unit": "%",
+        "d": 82
+      }
+    ],
+    "about": "Fill rate is the share of ad requests that returned a paid ad. Unfilled requests are revenue left on the table, but chasing 100% fill with cheap demand can drag down eCPM.",
+    "formulaDisplay": "Fill rate = (Filled impressions ÷ Ad requests) × 100"
+  },
+  {
+    "id": "viewable-fill-rate",
+    "cat": "FIL",
+    "name": "Viewable Fill Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "viewable",
+        "label": "Viewable filled impressions",
+        "unit": "#",
+        "d": 520000
+      },
+      {
+        "key": "requests",
+        "label": "Ad requests",
+        "unit": "#",
+        "d": 1000000
+      },
+      {
+        "key": "vfill",
+        "label": "Viewable fill rate",
+        "unit": "%",
+        "d": 52
+      }
+    ],
+    "about": "Viewable fill rate is the share of ad requests that became a paid and viewable impression. With buyers increasingly paying on viewability, it is the fill number that predicts what you can actually sell.",
+    "formulaDisplay": "Viewable fill rate = (Viewable filled impressions ÷ Ad requests) × 100"
+  },
+  {
+    "id": "ad-load",
+    "cat": "FIL",
+    "name": "Ad Load",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "impressions",
+        "label": "Ad impressions",
+        "unit": "#",
+        "d": 3000000
+      },
+      {
+        "key": "pageviews",
+        "label": "Pageviews",
+        "unit": "#",
+        "d": 600000
+      },
+      {
+        "key": "load",
+        "label": "Ads per pageview",
+        "unit": "#",
+        "d": 5
+      }
+    ],
+    "about": "Ad load is the average number of ads served per pageview. More ads raise revenue in the short run but slow pages, cut viewability and wear out readers, so it is the dial to set with care.",
+    "formulaDisplay": "Ads per pageview = Ad impressions ÷ Pageviews"
+  },
+  {
+    "id": "header-bidding-win-rate",
+    "cat": "HB",
+    "name": "Header Bidding Win Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "won",
+        "label": "Bids won",
+        "unit": "#",
+        "d": 45000
+      },
+      {
+        "key": "bids",
+        "label": "Bids received",
+        "unit": "#",
+        "d": 300000
+      },
+      {
+        "key": "win",
+        "label": "Win rate",
+        "unit": "%",
+        "d": 15
+      }
+    ],
+    "about": "Header bidding win rate is the share of a bidder's bids that won the auction. A bidder that bids often but rarely wins is adding latency without adding revenue.",
+    "formulaDisplay": "Win rate = (Bids won ÷ Bids received) × 100"
+  },
+  {
+    "id": "header-bidding-cpm-uplift",
+    "cat": "HB",
+    "name": "Header Bidding CPM Uplift",
+    "relation": "ROI2",
+    "vars": [
+      {
+        "key": "after",
+        "label": "CPM with header bidding",
+        "unit": "$",
+        "d": 3.1
+      },
+      {
+        "key": "before",
+        "label": "CPM before (waterfall)",
+        "unit": "$",
+        "d": 2.4
+      },
+      {
+        "key": "uplift",
+        "label": "CPM uplift",
+        "unit": "%",
+        "d": 29.16666667
+      }
+    ],
+    "about": "CPM uplift is how much higher your average CPM is with header bidding than it was with a waterfall. It is the number that justifies, or questions, the latency and complexity of adding bidders.",
+    "formulaDisplay": "CPM uplift = ((CPM with HB − CPM before) ÷ CPM before) × 100"
+  },
+  {
+    "id": "publisher-take-home-rate",
+    "cat": "DEAL",
+    "name": "Publisher Take-Home Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "net",
+        "label": "Publisher net revenue",
+        "unit": "$",
+        "d": 7200
+      },
+      {
+        "key": "gross",
+        "label": "Advertiser gross spend",
+        "unit": "$",
+        "d": 10000
+      },
+      {
+        "key": "takehome",
+        "label": "Take-home rate",
+        "unit": "%",
+        "d": 72
+      }
+    ],
+    "about": "Take-home rate is the share of each advertiser dollar that actually reaches the publisher after every intermediary fee. Supply-path studies regularly find it well below what either side assumes.",
+    "formulaDisplay": "Take-home rate = (Publisher net revenue ÷ Advertiser gross spend) × 100"
+  },
+  {
+    "id": "pg-realization-rate",
+    "cat": "DEAL",
+    "name": "PG Realization Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "delivered",
+        "label": "Delivered PG revenue",
+        "unit": "$",
+        "d": 41000
+      },
+      {
+        "key": "booked",
+        "label": "Booked PG revenue",
+        "unit": "$",
+        "d": 50000
+      },
+      {
+        "key": "realization",
+        "label": "Realization rate",
+        "unit": "%",
+        "d": 82
+      }
+    ],
+    "about": "PG realization rate is the share of booked programmatic guaranteed revenue that actually delivered and billed. Gaps usually come from targeting that is too narrow, creative issues or buyer-side pacing.",
+    "formulaDisplay": "Realization rate = (Delivered PG revenue ÷ Booked PG revenue) × 100"
+  },
+  {
+    "id": "direct-revenue-mix",
+    "cat": "DEAL",
+    "name": "Direct Revenue Mix",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "direct",
+        "label": "Direct-sold revenue",
+        "unit": "$",
+        "d": 30000
+      },
+      {
+        "key": "total",
+        "label": "Total ad revenue",
+        "unit": "$",
+        "d": 120000
+      },
+      {
+        "key": "mix",
+        "label": "Direct revenue mix",
+        "unit": "%",
+        "d": 25
+      }
+    ],
+    "about": "Direct revenue mix is the share of ad revenue that comes from deals you sold directly rather than open auctions. A healthy direct share means steadier prices and less dependence on exchange demand.",
+    "formulaDisplay": "Direct revenue mix = (Direct-sold revenue ÷ Total ad revenue) × 100"
+  }
+]

@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens (PROJECT_SPEC.md §5)
+   The accent is a variable so sell-side pages can swap red for charcoal
+   by wrapping content in [data-side="sell"].
+   ------------------------------------------------------------------ */
+:root {
+  --paper: #ffffff;
+  --raised: #fafafa;
+  --ink: #111111;
+  --muted: #555555;
+  --line: #e4e4e4;
+
+  --red: #d8232a;
+  --red-strong: #a81820;
+  --red-soft: #fdeaea;
+  --charcoal: #1a1a1a;
+
+  --accent: var(--red);
+  --accent-strong: var(--red-strong);
+  --accent-soft: var(--red-soft);
+  --on-accent: #ffffff;
+}
+
+[data-side="sell"] {
+  --accent: var(--charcoal);
+  --accent-strong: #000000;
+  --accent-soft: #ededed;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-red: var(--red);
+  --color-red-strong: var(--red-strong);
+  --color-red-soft: var(--red-soft);
+  --color-charcoal: var(--charcoal);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --breakpoint-xs: 22.5rem; /* 360px */
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+@layer base {
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  /* Transparent so the fixed glass backdrop (html paints the white) shows through. */
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+/* Anchors land below the sticky header. */
+:target,
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Visible, high-contrast focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.focus-on-dark:focus-visible,
+.focus-on-dark :focus-visible {
+  outline-color: #ffffff;
+}
+
+}
+
+/* ------------------------------------------------------------------
+   Utilities
+   ------------------------------------------------------------------ */
+@utility wrap {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Glass surfaces. Translucent white over the blurred backdrop, with a
+   hairline edge so panels stay distinct where the backdrop is pale.
+   ------------------------------------------------------------------ */
+@utility glass {
+  background: rgb(255 255 255 / 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgb(255 255 255 / 0.75);
+  box-shadow:
+    0 0 0 1px rgb(17 17 17 / 0.07),
+    inset 0 1px 0 rgb(255 255 255 / 0.8),
+    0 12px 40px -16px rgb(17 17 17 / 0.22);
+}
+
+/* Menus and popovers: denser, so small text stays crisp. */
+@utility glass-strong {
+  background: rgb(255 255 255 / 0.86);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgb(255 255 255 / 0.8);
+  box-shadow:
+    0 0 0 1px rgb(17 17 17 / 0.08),
+    0 24px 60px -20px rgb(17 17 17 / 0.35);
+}
+
+/* Dark glass for ink cards. */
+@utility glass-ink {
+  background: rgb(17 17 17 / 0.86);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow: 0 16px 48px -18px rgb(17 17 17 / 0.5);
+}
+
+/* Blurred colour fields behind the glass. Static under reduced motion. */
+.backdrop-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  animation: blob-drift 38s ease-in-out infinite alternate;
+}
+@keyframes blob-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 4vh, 0) scale(1.12);
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.25rem, 13.5vw, 11rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+/* ------------------------------------------------------------------
+   Motion: scroll reveal and marquee. All disabled under reduced motion.
+   ------------------------------------------------------------------ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .backdrop-blob {
+    animation: none;
+  }
+  .marquee-dupe {
+    display: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
+}
+
+/* Square bullets in the accent colour, for long-form pages. */
+@utility list-square {
+  list-style-type: square;
+  & > li::marker {
+    color: var(--accent);
+  }
+}
+
+/* Creative Studio fills the screen below the header: no footer, no page scroll
+   (the tool scrolls inside itself). */
+body:has(.studio-root) footer {
+  display: none;
+}
+html:has(.studio-root) {
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------
+   GTM Generator print view: all three tabs, no site chrome, real colours.
+   ------------------------------------------------------------------ */
+@media print {
+  body:has(.gtm-root) > header,
+  body:has(.gtm-root) footer,
+  body:has(.gtm-root) .backdrop-blob,
+  body:has(.gtm-root) > a[href="#main"] {
+    display: none !important;
+  }
+  body:has(.gtm-root) {
+    background: #fff;
+    color: #111;
+  }
+  .gtm-root,
+  .gtm-root * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .gtm-root .glass {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: 1px solid #e4e4e4;
+  }
+  .gtm-root section,
+  .gtm-root li,
+  .gtm-root tr {
+    break-inside: avoid;
+  }
+}
+
+/* Media Mix Model: stop the page scrolling behind a full-screen chart. */
+html.fs-lock {
+  overflow: hidden;
+}

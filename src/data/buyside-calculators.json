@@ -1,0 +1,1843 @@
+[
+  {
+    "id": "cpm",
+    "cat": "UNI",
+    "name": "CPM (Cost per Mille)",
+    "relation": "RATIO2",
+    "k": 1000,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 5000
+      },
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 1200000
+      },
+      {
+        "key": "cpm",
+        "label": "CPM",
+        "unit": "$",
+        "d": 4.166666667
+      }
+    ],
+    "about": "CPM is what you pay for every thousand ad impressions. It is the common currency of awareness buying, letting you compare the price of reach across channels, formats and sellers regardless of clicks or outcomes.",
+    "formulaDisplay": "CPM = (Spend ÷ Impressions) × 1000"
+  },
+  {
+    "id": "cpc",
+    "cat": "UNI",
+    "name": "CPC (Cost per Click)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 2500
+      },
+      {
+        "key": "clicks",
+        "label": "Clicks",
+        "unit": "#",
+        "d": 1250
+      },
+      {
+        "key": "cpc",
+        "label": "CPC",
+        "unit": "$",
+        "d": 2
+      }
+    ],
+    "about": "CPC is the average price you pay each time someone clicks your ad. It sits between reach and results, and is the most direct read on how efficiently a campaign turns attention into traffic.",
+    "formulaDisplay": "CPC = Spend ÷ Clicks"
+  },
+  {
+    "id": "ctr",
+    "cat": "UNI",
+    "name": "CTR (Click-Through Rate)",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "clicks",
+        "label": "Clicks",
+        "unit": "#",
+        "d": 1800
+      },
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 240000
+      },
+      {
+        "key": "ctr",
+        "label": "CTR",
+        "unit": "%",
+        "d": 0.75
+      }
+    ],
+    "about": "CTR is the share of impressions that turned into a click. It is a quick signal of creative and targeting relevance, though a high CTR on its own says nothing about what happened after the click.",
+    "formulaDisplay": "CTR = (Clicks ÷ Impressions) × 100"
+  },
+  {
+    "id": "cpa",
+    "cat": "UNI",
+    "name": "CPA (Cost per Acquisition)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 12000
+      },
+      {
+        "key": "conversions",
+        "label": "Conversions",
+        "unit": "#",
+        "d": 300
+      },
+      {
+        "key": "cpa",
+        "label": "CPA",
+        "unit": "$",
+        "d": 40
+      }
+    ],
+    "about": "CPA is what you pay, on average, for each conversion you define as the goal. It is the metric most performance budgets are ultimately judged on, so it is worth knowing which conversion it counts.",
+    "formulaDisplay": "CPA = Spend ÷ Conversions"
+  },
+  {
+    "id": "roas",
+    "cat": "UNI",
+    "name": "ROAS (Return on Ad Spend)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Revenue",
+        "unit": "$",
+        "d": 48000
+      },
+      {
+        "key": "spend",
+        "label": "Ad spend",
+        "unit": "$",
+        "d": 12000
+      },
+      {
+        "key": "roas",
+        "label": "ROAS",
+        "unit": "x",
+        "d": 4
+      }
+    ],
+    "about": "ROAS is the revenue generated for every dollar of advertising. A 4x ROAS means four dollars back for each one spent, before product costs, so compare it against your break-even ROAS rather than to 1x.",
+    "formulaDisplay": "ROAS = Revenue ÷ Ad spend"
+  },
+  {
+    "id": "roi",
+    "cat": "UNI",
+    "name": "ROI (Return on Investment)",
+    "relation": "ROI2",
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Return",
+        "unit": "$",
+        "d": 30000
+      },
+      {
+        "key": "cost",
+        "label": "Cost",
+        "unit": "$",
+        "d": 20000
+      },
+      {
+        "key": "roi",
+        "label": "ROI",
+        "unit": "%",
+        "d": 50
+      }
+    ],
+    "about": "ROI is the profit or loss on an investment, expressed as a percentage of what it cost. Unlike ROAS it nets out the cost, so 0% means you broke even and anything negative lost money.",
+    "formulaDisplay": "ROI = ((Return − Cost) ÷ Cost) × 100"
+  },
+  {
+    "id": "cvr",
+    "cat": "UNI",
+    "name": "Conversion Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "conversions",
+        "label": "Conversions",
+        "unit": "#",
+        "d": 90
+      },
+      {
+        "key": "clicks",
+        "label": "Clicks",
+        "unit": "#",
+        "d": 3000
+      },
+      {
+        "key": "cvr",
+        "label": "Conversion rate",
+        "unit": "%",
+        "d": 3
+      }
+    ],
+    "about": "Conversion rate is the share of clicks that went on to complete your goal action. It measures the landing experience and offer as much as the ad, and it is the bridge between CPC and CPA.",
+    "formulaDisplay": "Conversion rate = (Conversions ÷ Clicks) × 100"
+  },
+  {
+    "id": "ltv",
+    "cat": "UNI",
+    "name": "LTV (Customer Lifetime Value)",
+    "relation": "PRODUCT3",
+    "vars": [
+      {
+        "key": "aov",
+        "label": "Average order value",
+        "unit": "$",
+        "d": 65
+      },
+      {
+        "key": "frequency",
+        "label": "Purchases per year",
+        "unit": "#",
+        "d": 4
+      },
+      {
+        "key": "lifespan",
+        "label": "Customer lifespan",
+        "unit": "yrs",
+        "d": 3
+      },
+      {
+        "key": "ltv",
+        "label": "LTV",
+        "unit": "$",
+        "d": 780
+      }
+    ],
+    "about": "LTV is the total revenue you can expect from a customer over the whole relationship. It sets the ceiling on what you can afford to pay to acquire one, which makes it the anchor for every CAC and CPA target.",
+    "formulaDisplay": "LTV = Average order value × Purchases per year × Customer lifespan"
+  },
+  {
+    "id": "break-even-roas",
+    "cat": "UNI",
+    "name": "Break-Even ROAS",
+    "relation": "INVERSE1",
+    "k": 100,
+    "vars": [
+      {
+        "key": "margin",
+        "label": "Gross margin",
+        "unit": "%",
+        "d": 40
+      },
+      {
+        "key": "beroas",
+        "label": "Break-even ROAS",
+        "unit": "x",
+        "d": 2.5
+      }
+    ],
+    "about": "Break-even ROAS is the return on ad spend at which a campaign exactly covers its product costs. Below it you lose money on every sale; above it, ads are paying for themselves.",
+    "formulaDisplay": "Break-even ROAS = 100 ÷ Gross margin %"
+  },
+  {
+    "id": "vcpm",
+    "cat": "DSP",
+    "name": "vCPM (Viewable CPM)",
+    "relation": "RATIO2",
+    "k": 1000,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 6000
+      },
+      {
+        "key": "viewable",
+        "label": "Viewable impressions",
+        "unit": "#",
+        "d": 900000
+      },
+      {
+        "key": "vcpm",
+        "label": "vCPM",
+        "unit": "$",
+        "d": 6.666666667
+      }
+    ],
+    "about": "vCPM is the price of a thousand impressions that actually met the viewability standard. It strips out ads that loaded but were never seen, giving a fairer price comparison between inventory sources.",
+    "formulaDisplay": "vCPM = (Spend ÷ Viewable impressions) × 1000"
+  },
+  {
+    "id": "viewability-rate",
+    "cat": "DSP",
+    "name": "Viewability Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "viewable",
+        "label": "Viewable impressions",
+        "unit": "#",
+        "d": 690000
+      },
+      {
+        "key": "measured",
+        "label": "Measured impressions",
+        "unit": "#",
+        "d": 1000000
+      },
+      {
+        "key": "viewability",
+        "label": "Viewability rate",
+        "unit": "%",
+        "d": 69
+      }
+    ],
+    "about": "Viewability rate is the share of measured impressions that were actually viewable. Under the MRC standard a display ad counts when half its pixels are on screen for at least one second.",
+    "formulaDisplay": "Viewability rate = (Viewable impressions ÷ Measured impressions) × 100"
+  },
+  {
+    "id": "frequency",
+    "cat": "DSP",
+    "name": "Average Frequency",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 2000000
+      },
+      {
+        "key": "reach",
+        "label": "Unique reach",
+        "unit": "#",
+        "d": 400000
+      },
+      {
+        "key": "frequency",
+        "label": "Average frequency",
+        "unit": "x",
+        "d": 5
+      }
+    ],
+    "about": "Average frequency is how many times, on average, each person you reached saw your ad. Too low and the message doesn't land; too high and you are paying to annoy people who already got it.",
+    "formulaDisplay": "Average frequency = Impressions ÷ Unique reach"
+  },
+  {
+    "id": "working-media",
+    "cat": "DSP",
+    "name": "Working Media Spend",
+    "relation": "PRODUCT2_SCALED",
+    "vars": [
+      {
+        "key": "gross",
+        "label": "Gross budget",
+        "unit": "$",
+        "d": 50000
+      },
+      {
+        "key": "working",
+        "label": "Working media share",
+        "unit": "%",
+        "d": 72,
+        "scale": 0.01
+      },
+      {
+        "key": "media",
+        "label": "Working media",
+        "unit": "$",
+        "d": 36000
+      }
+    ],
+    "about": "Working media is the part of your budget that actually buys impressions after platform, data and agency fees. Knowing the share tells you how much of every dollar reaches a publisher.",
+    "formulaDisplay": "Working media = Gross budget × Working media share %"
+  },
+  {
+    "id": "ivt-rate",
+    "cat": "DSP",
+    "name": "Invalid Traffic (IVT) Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "invalid",
+        "label": "Invalid impressions",
+        "unit": "#",
+        "d": 18000
+      },
+      {
+        "key": "total",
+        "label": "Total impressions",
+        "unit": "#",
+        "d": 1500000
+      },
+      {
+        "key": "ivt",
+        "label": "IVT rate",
+        "unit": "%",
+        "d": 1.2
+      }
+    ],
+    "about": "IVT rate is the share of impressions flagged as invalid: bots, crawlers, or fraudulent activity. It is the first number to check when results look too good, or too bad, to be true.",
+    "formulaDisplay": "IVT rate = (Invalid impressions ÷ Total impressions) × 100"
+  },
+  {
+    "id": "cpv",
+    "cat": "VID",
+    "name": "CPV (Cost per View)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 3000
+      },
+      {
+        "key": "views",
+        "label": "Views",
+        "unit": "#",
+        "d": 60000
+      },
+      {
+        "key": "cpv",
+        "label": "CPV",
+        "unit": "$",
+        "d": 0.05
+      }
+    ],
+    "about": "CPV is the average cost of each counted video view. What counts as a view differs by platform, often a few seconds or an interaction, so compare CPVs only when the definitions match.",
+    "formulaDisplay": "CPV = Spend ÷ Views"
+  },
+  {
+    "id": "cpcv",
+    "cat": "VID",
+    "name": "CPCV (Cost per Completed View)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 9000
+      },
+      {
+        "key": "completed",
+        "label": "Completed views",
+        "unit": "#",
+        "d": 150000
+      },
+      {
+        "key": "cpcv",
+        "label": "CPCV",
+        "unit": "$",
+        "d": 0.06
+      }
+    ],
+    "about": "CPCV is what you pay for each video watched to the end. It prices the full message rather than the start, which makes it the fairer metric when storytelling matters.",
+    "formulaDisplay": "CPCV = Spend ÷ Completed views"
+  },
+  {
+    "id": "vcr",
+    "cat": "VID",
+    "name": "VCR (Video Completion Rate)",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "completed",
+        "label": "Completed views",
+        "unit": "#",
+        "d": 140000
+      },
+      {
+        "key": "starts",
+        "label": "Video starts",
+        "unit": "#",
+        "d": 200000
+      },
+      {
+        "key": "vcr",
+        "label": "VCR",
+        "unit": "%",
+        "d": 70
+      }
+    ],
+    "about": "VCR is the share of started videos that played through to the end. It reflects creative length and hook, placement (skippable or not) and audience fit all at once.",
+    "formulaDisplay": "VCR = (Completed views ÷ Video starts) × 100"
+  },
+  {
+    "id": "view-rate",
+    "cat": "VID",
+    "name": "View Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "views",
+        "label": "Views",
+        "unit": "#",
+        "d": 45000
+      },
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 300000
+      },
+      {
+        "key": "viewrate",
+        "label": "View rate",
+        "unit": "%",
+        "d": 15
+      }
+    ],
+    "about": "View rate is the share of video impressions that became a counted view. It tells you how well the opening seconds earn attention before the viewer can skip or scroll.",
+    "formulaDisplay": "View rate = (Views ÷ Impressions) × 100"
+  },
+  {
+    "id": "completed-views-forecast",
+    "cat": "VID",
+    "name": "Completed Views Forecast",
+    "relation": "PRODUCT2_SCALED",
+    "vars": [
+      {
+        "key": "starts",
+        "label": "Video starts",
+        "unit": "#",
+        "d": 500000
+      },
+      {
+        "key": "vcr",
+        "label": "VCR",
+        "unit": "%",
+        "d": 70,
+        "scale": 0.01
+      },
+      {
+        "key": "completed",
+        "label": "Completed views",
+        "unit": "#",
+        "d": 350000
+      }
+    ],
+    "about": "This forecast turns expected video starts and a completion rate into the number of completed views you will get. Use it to size a buy against a completed-view goal before you commit budget.",
+    "formulaDisplay": "Completed views = Video starts × VCR %"
+  },
+  {
+    "id": "listen-through-rate",
+    "cat": "AUD",
+    "name": "LTR (Listen-Through Rate)",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "completed",
+        "label": "Completed listens",
+        "unit": "#",
+        "d": 85000
+      },
+      {
+        "key": "starts",
+        "label": "Audio starts",
+        "unit": "#",
+        "d": 100000
+      },
+      {
+        "key": "ltr",
+        "label": "LTR",
+        "unit": "%",
+        "d": 85
+      }
+    ],
+    "about": "LTR is the audio equivalent of video completion: the share of ads that played to the end. Audio LTRs tend to run high because listeners rarely skip, so a weak LTR is a strong signal.",
+    "formulaDisplay": "LTR = (Completed listens ÷ Audio starts) × 100"
+  },
+  {
+    "id": "cpcl",
+    "cat": "AUD",
+    "name": "CPCL (Cost per Completed Listen)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 4000
+      },
+      {
+        "key": "completed",
+        "label": "Completed listens",
+        "unit": "#",
+        "d": 80000
+      },
+      {
+        "key": "cpcl",
+        "label": "CPCL",
+        "unit": "$",
+        "d": 0.05
+      }
+    ],
+    "about": "CPCL is the price of each audio ad heard all the way through. It is the cleanest way to compare streaming audio and podcast buys that are sold on different impression definitions.",
+    "formulaDisplay": "CPCL = Spend ÷ Completed listens"
+  },
+  {
+    "id": "audio-reach",
+    "cat": "AUD",
+    "name": "Audio Reach",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 900000
+      },
+      {
+        "key": "frequency",
+        "label": "Average frequency",
+        "unit": "x",
+        "d": 3
+      },
+      {
+        "key": "reach",
+        "label": "Unique listeners reached",
+        "unit": "#",
+        "d": 300000
+      }
+    ],
+    "about": "Audio reach estimates how many unique listeners heard your ad, from total impressions and average frequency. It is how you translate an impression buy into the number of people it touched.",
+    "formulaDisplay": "Unique listeners reached = Impressions ÷ Average frequency"
+  },
+  {
+    "id": "companion-ctr",
+    "cat": "AUD",
+    "name": "Companion Banner CTR",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "clicks",
+        "label": "Companion clicks",
+        "unit": "#",
+        "d": 420
+      },
+      {
+        "key": "impressions",
+        "label": "Companion impressions",
+        "unit": "#",
+        "d": 150000
+      },
+      {
+        "key": "ctr",
+        "label": "Companion CTR",
+        "unit": "%",
+        "d": 0.28
+      }
+    ],
+    "about": "Companion CTR is the click rate on the display banner that appears alongside an audio ad. Rates are low by nature, since most listening is screen-off, so judge it against audio benchmarks, not display.",
+    "formulaDisplay": "Companion CTR = (Companion clicks ÷ Companion impressions) × 100"
+  },
+  {
+    "id": "cost-per-household",
+    "cat": "CTV",
+    "name": "Cost per Household Reached",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 25000
+      },
+      {
+        "key": "households",
+        "label": "Households reached",
+        "unit": "#",
+        "d": 180000
+      },
+      {
+        "key": "cphh",
+        "label": "Cost per household",
+        "unit": "$",
+        "d": 0.1388888889
+      }
+    ],
+    "about": "Cost per household is what you pay to reach each unique TV household. CTV is bought and measured at the household level, so this is the reach price that matters more than CPM.",
+    "formulaDisplay": "Cost per household = Spend ÷ Households reached"
+  },
+  {
+    "id": "grps",
+    "cat": "CTV",
+    "name": "GRPs (Gross Rating Points)",
+    "relation": "PRODUCT2_SCALED",
+    "vars": [
+      {
+        "key": "frequency",
+        "label": "Average frequency",
+        "unit": "x",
+        "d": 4
+      },
+      {
+        "key": "reach",
+        "label": "Reach",
+        "unit": "%",
+        "d": 35,
+        "scale": 1
+      },
+      {
+        "key": "grps",
+        "label": "GRPs",
+        "unit": "#",
+        "d": 140
+      }
+    ],
+    "about": "GRPs measure the total weight of a TV buy: reach as a percentage of the target audience multiplied by average frequency. They let you compare CTV plans with linear TV in the language TV buyers already use.",
+    "formulaDisplay": "GRPs = Average frequency × Reach %"
+  },
+  {
+    "id": "household-reach",
+    "cat": "CTV",
+    "name": "Household Reach %",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "households",
+        "label": "Households reached",
+        "unit": "#",
+        "d": 180000
+      },
+      {
+        "key": "universe",
+        "label": "Target households",
+        "unit": "#",
+        "d": 1200000
+      },
+      {
+        "key": "reach",
+        "label": "Household reach",
+        "unit": "%",
+        "d": 15
+      }
+    ],
+    "about": "Household reach is the share of your target TV households that saw the campaign at least once. It is the headline number for any awareness-led CTV plan.",
+    "formulaDisplay": "Household reach = (Households reached ÷ Target households) × 100"
+  },
+  {
+    "id": "ctv-visit-rate",
+    "cat": "CTV",
+    "name": "Household Site Visit Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "visits",
+        "label": "Site visits",
+        "unit": "#",
+        "d": 2700
+      },
+      {
+        "key": "households",
+        "label": "Households reached",
+        "unit": "#",
+        "d": 180000
+      },
+      {
+        "key": "rate",
+        "label": "Site visit rate",
+        "unit": "%",
+        "d": 1.5
+      }
+    ],
+    "about": "Site visit rate is the share of reached households that later visited your site, matched by IP or device graph. It is the most common way to show that a lean-back TV ad drove action.",
+    "formulaDisplay": "Site visit rate = (Site visits ÷ Households reached) × 100"
+  },
+  {
+    "id": "ctv-cost-per-visit",
+    "cat": "CTV",
+    "name": "Cost per Site Visit",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 25000
+      },
+      {
+        "key": "visits",
+        "label": "Site visits",
+        "unit": "#",
+        "d": 2700
+      },
+      {
+        "key": "cpv",
+        "label": "Cost per site visit",
+        "unit": "$",
+        "d": 9.259259259
+      }
+    ],
+    "about": "Cost per site visit prices the traffic a CTV campaign drove to your website. It lets you put streaming TV next to search and social on the same performance scale.",
+    "formulaDisplay": "Cost per site visit = Spend ÷ Site visits"
+  },
+  {
+    "id": "cost-per-lpv",
+    "cat": "NAT",
+    "name": "Cost per Landing Page View",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 3500
+      },
+      {
+        "key": "lpv",
+        "label": "Landing page views",
+        "unit": "#",
+        "d": 7000
+      },
+      {
+        "key": "cplpv",
+        "label": "Cost per landing page view",
+        "unit": "$",
+        "d": 0.5
+      }
+    ],
+    "about": "Cost per landing page view is what you pay for each visitor whose page actually loaded. Native clicks often bounce before the page renders, so this is a more honest traffic cost than CPC.",
+    "formulaDisplay": "Cost per landing page view = Spend ÷ Landing page views"
+  },
+  {
+    "id": "engaged-visit-rate",
+    "cat": "NAT",
+    "name": "Engaged Visit Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "engaged",
+        "label": "Engaged visits",
+        "unit": "#",
+        "d": 2100
+      },
+      {
+        "key": "lpv",
+        "label": "Landing page views",
+        "unit": "#",
+        "d": 7000
+      },
+      {
+        "key": "rate",
+        "label": "Engaged visit rate",
+        "unit": "%",
+        "d": 30
+      }
+    ],
+    "about": "Engaged visit rate is the share of landing page views that met your engagement bar, such as time on page or scroll depth. It separates readers from accidental clicks on native placements.",
+    "formulaDisplay": "Engaged visit rate = (Engaged visits ÷ Landing page views) × 100"
+  },
+  {
+    "id": "cost-per-engaged-visit",
+    "cat": "NAT",
+    "name": "Cost per Engaged Visit",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 3500
+      },
+      {
+        "key": "engaged",
+        "label": "Engaged visits",
+        "unit": "#",
+        "d": 2100
+      },
+      {
+        "key": "cpev",
+        "label": "Cost per engaged visit",
+        "unit": "$",
+        "d": 1.666666667
+      }
+    ],
+    "about": "Cost per engaged visit prices only the visitors who actually read or interacted. It is the metric that best rewards native content that earns attention instead of baiting clicks.",
+    "formulaDisplay": "Cost per engaged visit = Spend ÷ Engaged visits"
+  },
+  {
+    "id": "click-forecast",
+    "cat": "NAT",
+    "name": "Click Forecast",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "budget",
+        "label": "Budget",
+        "unit": "$",
+        "d": 5000
+      },
+      {
+        "key": "cpc",
+        "label": "Expected CPC",
+        "unit": "$",
+        "d": 0.8
+      },
+      {
+        "key": "clicks",
+        "label": "Clicks",
+        "unit": "#",
+        "d": 6250
+      }
+    ],
+    "about": "The click forecast shows how many clicks a budget buys at an expected CPC. Run it backwards to find the CPC you need to hit a traffic goal on a fixed budget.",
+    "formulaDisplay": "Clicks = Budget ÷ Expected CPC"
+  },
+  {
+    "id": "engagement-rate",
+    "cat": "SOC",
+    "name": "Engagement Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "engagements",
+        "label": "Engagements",
+        "unit": "#",
+        "d": 5400
+      },
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 180000
+      },
+      {
+        "key": "er",
+        "label": "Engagement rate",
+        "unit": "%",
+        "d": 3
+      }
+    ],
+    "about": "Engagement rate is the share of impressions that produced a like, comment, share, save or click. It is social's shorthand for whether the content resonated with the feed it landed in.",
+    "formulaDisplay": "Engagement rate = (Engagements ÷ Impressions) × 100"
+  },
+  {
+    "id": "cpe",
+    "cat": "SOC",
+    "name": "CPE (Cost per Engagement)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 1800
+      },
+      {
+        "key": "engagements",
+        "label": "Engagements",
+        "unit": "#",
+        "d": 5400
+      },
+      {
+        "key": "cpe",
+        "label": "CPE",
+        "unit": "$",
+        "d": 0.3333333333
+      }
+    ],
+    "about": "CPE is the average price of each engagement on a paid social post. It suits community and consideration goals, but watch which actions count, since a save and a like are not worth the same.",
+    "formulaDisplay": "CPE = Spend ÷ Engagements"
+  },
+  {
+    "id": "cost-per-follower",
+    "cat": "SOC",
+    "name": "Cost per Follower",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 2000
+      },
+      {
+        "key": "followers",
+        "label": "New followers",
+        "unit": "#",
+        "d": 1600
+      },
+      {
+        "key": "cpf",
+        "label": "Cost per follower",
+        "unit": "$",
+        "d": 1.25
+      }
+    ],
+    "about": "Cost per follower is what you pay for each new account that follows you. It only makes sense next to an estimate of what a follower is worth in organic reach and future conversions.",
+    "formulaDisplay": "Cost per follower = Spend ÷ New followers"
+  },
+  {
+    "id": "thumb-stop-rate",
+    "cat": "SOC",
+    "name": "Thumb-Stop Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "holds",
+        "label": "3-second views",
+        "unit": "#",
+        "d": 36000
+      },
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 150000
+      },
+      {
+        "key": "tsr",
+        "label": "Thumb-stop rate",
+        "unit": "%",
+        "d": 24
+      }
+    ],
+    "about": "Thumb-stop rate is the share of impressions where someone paused for at least three seconds. It isolates how well your first frame stops the scroll, before the message even starts.",
+    "formulaDisplay": "Thumb-stop rate = (3-second views ÷ Impressions) × 100"
+  },
+  {
+    "id": "cpl",
+    "cat": "SOC",
+    "name": "CPL (Cost per Lead)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 6000
+      },
+      {
+        "key": "leads",
+        "label": "Leads",
+        "unit": "#",
+        "d": 240
+      },
+      {
+        "key": "cpl",
+        "label": "CPL",
+        "unit": "$",
+        "d": 25
+      }
+    ],
+    "about": "CPL is the average cost of each lead captured, often through a native lead form. Low CPLs from in-platform forms can hide poor lead quality, so pair it with lead-to-customer rate.",
+    "formulaDisplay": "CPL = Spend ÷ Leads"
+  },
+  {
+    "id": "cpi",
+    "cat": "APP",
+    "name": "CPI (Cost per Install)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 15000
+      },
+      {
+        "key": "installs",
+        "label": "Installs",
+        "unit": "#",
+        "d": 6000
+      },
+      {
+        "key": "cpi",
+        "label": "CPI",
+        "unit": "$",
+        "d": 2.5
+      }
+    ],
+    "about": "CPI is the average cost of each app install driven by your ads. It is the entry price of mobile growth, but the installs only pay off if users stick around and spend.",
+    "formulaDisplay": "CPI = Spend ÷ Installs"
+  },
+  {
+    "id": "install-rate",
+    "cat": "APP",
+    "name": "Click-to-Install Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "installs",
+        "label": "Installs",
+        "unit": "#",
+        "d": 6000
+      },
+      {
+        "key": "clicks",
+        "label": "Clicks",
+        "unit": "#",
+        "d": 120000
+      },
+      {
+        "key": "rate",
+        "label": "Click-to-install rate",
+        "unit": "%",
+        "d": 5
+      }
+    ],
+    "about": "Click-to-install rate is the share of ad clicks that ended in an install. It reflects your app store page as much as the ad: screenshots, ratings and size all move it.",
+    "formulaDisplay": "Click-to-install rate = (Installs ÷ Clicks) × 100"
+  },
+  {
+    "id": "d7-retention",
+    "cat": "APP",
+    "name": "Day-7 Retention",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "active",
+        "label": "Users active on day 7",
+        "unit": "#",
+        "d": 1500
+      },
+      {
+        "key": "installs",
+        "label": "Installs",
+        "unit": "#",
+        "d": 6000
+      },
+      {
+        "key": "d7",
+        "label": "D7 retention",
+        "unit": "%",
+        "d": 25
+      }
+    ],
+    "about": "Day-7 retention is the share of new installers still opening the app a week later. It is the earliest reliable signal of whether an acquisition channel is bringing in the right users.",
+    "formulaDisplay": "D7 retention = (Users active on day 7 ÷ Installs) × 100"
+  },
+  {
+    "id": "arpdau",
+    "cat": "APP",
+    "name": "ARPDAU",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Daily revenue",
+        "unit": "$",
+        "d": 4200
+      },
+      {
+        "key": "dau",
+        "label": "Daily active users",
+        "unit": "#",
+        "d": 35000
+      },
+      {
+        "key": "arpdau",
+        "label": "ARPDAU",
+        "unit": "$",
+        "d": 0.12
+      }
+    ],
+    "about": "ARPDAU is average revenue per daily active user. It is the day-by-day monetization pulse of an app, and the number you multiply by retention to estimate user value.",
+    "formulaDisplay": "ARPDAU = Daily revenue ÷ Daily active users"
+  },
+  {
+    "id": "paying-users-forecast",
+    "cat": "APP",
+    "name": "Paying Users Forecast",
+    "relation": "PRODUCT2_SCALED",
+    "vars": [
+      {
+        "key": "installs",
+        "label": "Installs",
+        "unit": "#",
+        "d": 20000
+      },
+      {
+        "key": "payer",
+        "label": "Payer conversion",
+        "unit": "%",
+        "d": 3.5,
+        "scale": 0.01
+      },
+      {
+        "key": "payers",
+        "label": "Paying users",
+        "unit": "#",
+        "d": 700
+      }
+    ],
+    "about": "This forecast estimates how many installers will become paying users at a given payer conversion rate. Use it to check whether an install target is big enough to hit a revenue goal.",
+    "formulaDisplay": "Paying users = Installs × Payer conversion %"
+  },
+  {
+    "id": "aov",
+    "cat": "ECM",
+    "name": "AOV (Average Order Value)",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Revenue",
+        "unit": "$",
+        "d": 84000
+      },
+      {
+        "key": "orders",
+        "label": "Orders",
+        "unit": "#",
+        "d": 1200
+      },
+      {
+        "key": "aov",
+        "label": "AOV",
+        "unit": "$",
+        "d": 70
+      }
+    ],
+    "about": "AOV is the average revenue per order. Raising it through bundles, thresholds or upsells lifts ROAS without buying a single extra click.",
+    "formulaDisplay": "AOV = Revenue ÷ Orders"
+  },
+  {
+    "id": "add-to-cart-rate",
+    "cat": "ECM",
+    "name": "Add-to-Cart Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "atc",
+        "label": "Add-to-carts",
+        "unit": "#",
+        "d": 2400
+      },
+      {
+        "key": "sessions",
+        "label": "Sessions",
+        "unit": "#",
+        "d": 40000
+      },
+      {
+        "key": "atcr",
+        "label": "Add-to-cart rate",
+        "unit": "%",
+        "d": 6
+      }
+    ],
+    "about": "Add-to-cart rate is the share of sessions where a shopper put something in the basket. It separates product and price appeal from checkout friction, which shows up later in the funnel.",
+    "formulaDisplay": "Add-to-cart rate = (Add-to-carts ÷ Sessions) × 100"
+  },
+  {
+    "id": "acos",
+    "cat": "ECM",
+    "name": "ACoS (Advertising Cost of Sale)",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Ad spend",
+        "unit": "$",
+        "d": 5000
+      },
+      {
+        "key": "sales",
+        "label": "Attributed sales",
+        "unit": "$",
+        "d": 25000
+      },
+      {
+        "key": "acos",
+        "label": "ACoS",
+        "unit": "%",
+        "d": 20
+      }
+    ],
+    "about": "ACoS is ad spend as a percentage of the sales those ads drove, the standard metric on retail media like Amazon Ads. It is the inverse of ROAS: a 20% ACoS is a 5x ROAS.",
+    "formulaDisplay": "ACoS = (Ad spend ÷ Attributed sales) × 100"
+  },
+  {
+    "id": "tacos",
+    "cat": "ECM",
+    "name": "TACoS (Total ACoS)",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Ad spend",
+        "unit": "$",
+        "d": 5000
+      },
+      {
+        "key": "sales",
+        "label": "Total sales",
+        "unit": "$",
+        "d": 80000
+      },
+      {
+        "key": "tacos",
+        "label": "TACoS",
+        "unit": "%",
+        "d": 6.25
+      }
+    ],
+    "about": "TACoS is ad spend as a percentage of all sales, paid and organic. A falling TACoS while sales grow means advertising is lifting organic demand rather than just buying it.",
+    "formulaDisplay": "TACoS = (Ad spend ÷ Total sales) × 100"
+  },
+  {
+    "id": "revenue-forecast",
+    "cat": "ECM",
+    "name": "Revenue Forecast",
+    "relation": "PRODUCT3",
+    "vars": [
+      {
+        "key": "sessions",
+        "label": "Sessions",
+        "unit": "#",
+        "d": 50000
+      },
+      {
+        "key": "cvr",
+        "label": "Conversion rate",
+        "unit": "%",
+        "d": 2.5,
+        "scale": 0.01
+      },
+      {
+        "key": "aov",
+        "label": "AOV",
+        "unit": "$",
+        "d": 70
+      },
+      {
+        "key": "revenue",
+        "label": "Revenue",
+        "unit": "$",
+        "d": 87500
+      }
+    ],
+    "about": "The revenue forecast multiplies traffic, conversion rate and order value into expected sales. Because any of the four can be solved, it doubles as a way to find the traffic or AOV you need to hit a number.",
+    "formulaDisplay": "Revenue = Sessions × Conversion rate % × AOV"
+  },
+  {
+    "id": "audience-multiplier",
+    "cat": "DOOH",
+    "name": "Audience Multiplier",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "impressions",
+        "label": "Impressions",
+        "unit": "#",
+        "d": 450000
+      },
+      {
+        "key": "plays",
+        "label": "Ad plays",
+        "unit": "#",
+        "d": 15000
+      },
+      {
+        "key": "multiplier",
+        "label": "Impressions per play",
+        "unit": "x",
+        "d": 30
+      }
+    ],
+    "about": "The audience multiplier is the number of people estimated to see each ad play on a screen. DOOH sells plays, but you plan in impressions, and this is the conversion rate between the two.",
+    "formulaDisplay": "Impressions per play = Impressions ÷ Ad plays"
+  },
+  {
+    "id": "cost-per-play",
+    "cat": "DOOH",
+    "name": "Cost per Play",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 6000
+      },
+      {
+        "key": "plays",
+        "label": "Ad plays",
+        "unit": "#",
+        "d": 15000
+      },
+      {
+        "key": "cpp",
+        "label": "Cost per play",
+        "unit": "$",
+        "d": 0.4
+      }
+    ],
+    "about": "Cost per play is the average price each time your ad runs on a screen. It is the native unit of DOOH pricing, before any audience estimate is applied.",
+    "formulaDisplay": "Cost per play = Spend ÷ Ad plays"
+  },
+  {
+    "id": "share-of-voice",
+    "cat": "DOOH",
+    "name": "Share of Voice",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "yours",
+        "label": "Your plays",
+        "unit": "#",
+        "d": 1200
+      },
+      {
+        "key": "total",
+        "label": "Total loop plays",
+        "unit": "#",
+        "d": 7200
+      },
+      {
+        "key": "sov",
+        "label": "Share of voice",
+        "unit": "%",
+        "d": 16.66666667
+      }
+    ],
+    "about": "Share of voice is the portion of a screen's ad loop that belongs to you. A one-in-six slot is about 17%; higher shares buy dominance in a location, usually at a premium.",
+    "formulaDisplay": "Share of voice = (Your plays ÷ Total loop plays) × 100"
+  },
+  {
+    "id": "total-plays",
+    "cat": "DOOH",
+    "name": "Total Plays",
+    "relation": "PRODUCT3",
+    "vars": [
+      {
+        "key": "screens",
+        "label": "Screens",
+        "unit": "#",
+        "d": 40
+      },
+      {
+        "key": "ppd",
+        "label": "Plays per screen per day",
+        "unit": "#",
+        "d": 120
+      },
+      {
+        "key": "days",
+        "label": "Flight length",
+        "unit": "days",
+        "d": 14
+      },
+      {
+        "key": "plays",
+        "label": "Total plays",
+        "unit": "#",
+        "d": 67200
+      }
+    ],
+    "about": "Total plays is how many times your ad will run across a network over a flight. Solve it the other way to find how many screens or days you need to deliver a play guarantee.",
+    "formulaDisplay": "Total plays = Screens × Plays per screen per day × Flight length"
+  },
+  {
+    "id": "cost-per-wallet-connect",
+    "cat": "CRY",
+    "name": "Cost per Wallet Connect",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 8000
+      },
+      {
+        "key": "connects",
+        "label": "Wallet connects",
+        "unit": "#",
+        "d": 1600
+      },
+      {
+        "key": "cpwc",
+        "label": "Cost per wallet connect",
+        "unit": "$",
+        "d": 5
+      }
+    ],
+    "about": "Cost per wallet connect is what you pay for each user who links a crypto wallet to your app. It is the web3 equivalent of a sign-up, and the first on-chain signal of real intent.",
+    "formulaDisplay": "Cost per wallet connect = Spend ÷ Wallet connects"
+  },
+  {
+    "id": "cost-per-funded-wallet",
+    "cat": "CRY",
+    "name": "Cost per Funded Wallet",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 8000
+      },
+      {
+        "key": "funded",
+        "label": "Funded wallets",
+        "unit": "#",
+        "d": 320
+      },
+      {
+        "key": "cpfw",
+        "label": "Cost per funded wallet",
+        "unit": "$",
+        "d": 25
+      }
+    ],
+    "about": "Cost per funded wallet prices each new user who actually deposits. It filters out airdrop hunters and curious connectors, so it is the crypto metric closest to a true CPA.",
+    "formulaDisplay": "Cost per funded wallet = Spend ÷ Funded wallets"
+  },
+  {
+    "id": "wallet-funding-rate",
+    "cat": "CRY",
+    "name": "Wallet Funding Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "funded",
+        "label": "Funded wallets",
+        "unit": "#",
+        "d": 320
+      },
+      {
+        "key": "connects",
+        "label": "Wallet connects",
+        "unit": "#",
+        "d": 1600
+      },
+      {
+        "key": "rate",
+        "label": "Funding rate",
+        "unit": "%",
+        "d": 20
+      }
+    ],
+    "about": "Wallet funding rate is the share of connected wallets that went on to deposit. A low rate points to onboarding friction or low-intent traffic rather than an ad problem.",
+    "formulaDisplay": "Funding rate = (Funded wallets ÷ Wallet connects) × 100"
+  },
+  {
+    "id": "cohort-roi",
+    "cat": "CRY",
+    "name": "Cohort ROI",
+    "relation": "ROI2",
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Cohort net revenue",
+        "unit": "$",
+        "d": 11000
+      },
+      {
+        "key": "cost",
+        "label": "Acquisition cost",
+        "unit": "$",
+        "d": 8000
+      },
+      {
+        "key": "roi",
+        "label": "Cohort ROI",
+        "unit": "%",
+        "d": 37.5
+      }
+    ],
+    "about": "Cohort ROI compares the net revenue a group of acquired users generated with what it cost to acquire them. In volatile markets, measure it per cohort rather than in aggregate.",
+    "formulaDisplay": "Cohort ROI = ((Cohort net revenue − Acquisition cost) ÷ Acquisition cost) × 100"
+  },
+  {
+    "id": "cost-per-appointment",
+    "cat": "HLT",
+    "name": "Cost per Booked Appointment",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 9000
+      },
+      {
+        "key": "appointments",
+        "label": "Booked appointments",
+        "unit": "#",
+        "d": 150
+      },
+      {
+        "key": "cpa",
+        "label": "Cost per appointment",
+        "unit": "$",
+        "d": 60
+      }
+    ],
+    "about": "Cost per booked appointment is the ad cost of each scheduled visit. For providers it is the most practical acquisition metric, sitting between a lead and a treated patient.",
+    "formulaDisplay": "Cost per appointment = Spend ÷ Booked appointments"
+  },
+  {
+    "id": "lead-to-patient-rate",
+    "cat": "HLT",
+    "name": "Lead-to-Patient Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "patients",
+        "label": "New patients",
+        "unit": "#",
+        "d": 45
+      },
+      {
+        "key": "leads",
+        "label": "Leads",
+        "unit": "#",
+        "d": 300
+      },
+      {
+        "key": "rate",
+        "label": "Lead-to-patient rate",
+        "unit": "%",
+        "d": 15
+      }
+    ],
+    "about": "Lead-to-patient rate is the share of inquiries that became treated patients. It often depends more on intake speed and insurance fit than on the ad that generated the lead.",
+    "formulaDisplay": "Lead-to-patient rate = (New patients ÷ Leads) × 100"
+  },
+  {
+    "id": "cost-per-new-patient",
+    "cat": "HLT",
+    "name": "Cost per New Patient",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 9000
+      },
+      {
+        "key": "patients",
+        "label": "New patients",
+        "unit": "#",
+        "d": 45
+      },
+      {
+        "key": "cpnp",
+        "label": "Cost per new patient",
+        "unit": "$",
+        "d": 200
+      }
+    ],
+    "about": "Cost per new patient is the full ad cost of each patient who actually started care. Compare it with patient lifetime value, not with cost per lead.",
+    "formulaDisplay": "Cost per new patient = Spend ÷ New patients"
+  },
+  {
+    "id": "hcp-reach",
+    "cat": "HLT",
+    "name": "HCP Reach %",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "reached",
+        "label": "HCPs reached",
+        "unit": "#",
+        "d": 3200
+      },
+      {
+        "key": "target",
+        "label": "Target HCP list",
+        "unit": "#",
+        "d": 8000
+      },
+      {
+        "key": "reach",
+        "label": "HCP reach",
+        "unit": "%",
+        "d": 40
+      }
+    ],
+    "about": "HCP reach is the share of a target list of healthcare professionals your campaign reached. Pharma and med-device teams buy against named lists, so this is the coverage number that matters.",
+    "formulaDisplay": "HCP reach = (HCPs reached ÷ Target HCP list) × 100"
+  },
+  {
+    "id": "cost-per-registration",
+    "cat": "GAM",
+    "name": "Cost per Registration",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "spend",
+        "label": "Spend",
+        "unit": "$",
+        "d": 10000
+      },
+      {
+        "key": "registrations",
+        "label": "Registrations",
+        "unit": "#",
+        "d": 4000
+      },
+      {
+        "key": "cpr",
+        "label": "Cost per registration",
+        "unit": "$",
+        "d": 2.5
+      }
+    ],
+    "about": "Cost per registration is the ad cost of each new player account. For PC and console titles it often replaces CPI as the core acquisition metric.",
+    "formulaDisplay": "Cost per registration = Spend ÷ Registrations"
+  },
+  {
+    "id": "payer-conversion",
+    "cat": "GAM",
+    "name": "Payer Conversion Rate",
+    "relation": "RATIO2",
+    "k": 100,
+    "vars": [
+      {
+        "key": "payers",
+        "label": "Paying players",
+        "unit": "#",
+        "d": 800
+      },
+      {
+        "key": "active",
+        "label": "Active players",
+        "unit": "#",
+        "d": 40000
+      },
+      {
+        "key": "rate",
+        "label": "Payer conversion",
+        "unit": "%",
+        "d": 2
+      }
+    ],
+    "about": "Payer conversion is the share of active players who have made any purchase. In free-to-play games it is usually low single digits, which makes small lifts very valuable.",
+    "formulaDisplay": "Payer conversion = (Paying players ÷ Active players) × 100"
+  },
+  {
+    "id": "arppu",
+    "cat": "GAM",
+    "name": "ARPPU",
+    "relation": "RATIO2",
+    "k": 1,
+    "vars": [
+      {
+        "key": "revenue",
+        "label": "Revenue",
+        "unit": "$",
+        "d": 22000
+      },
+      {
+        "key": "payers",
+        "label": "Paying players",
+        "unit": "#",
+        "d": 800
+      },
+      {
+        "key": "arppu",
+        "label": "ARPPU",
+        "unit": "$",
+        "d": 27.5
+      }
+    ],
+    "about": "ARPPU is average revenue per paying user. Together with payer conversion it explains where game revenue comes from: many small spenders or a few big ones.",
+    "formulaDisplay": "ARPPU = Revenue ÷ Paying players"
+  },
+  {
+    "id": "in-game-ad-revenue",
+    "cat": "GAM",
+    "name": "In-Game Ad Revenue",
+    "relation": "PRODUCT3",
+    "vars": [
+      {
+        "key": "players",
+        "label": "Players",
+        "unit": "#",
+        "d": 25000
+      },
+      {
+        "key": "perplayer",
+        "label": "Ad impressions per player",
+        "unit": "#",
+        "d": 40
+      },
+      {
+        "key": "ecpm",
+        "label": "eCPM",
+        "unit": "$",
+        "d": 12,
+        "scale": 0.001
+      },
+      {
+        "key": "revenue",
+        "label": "Ad revenue",
+        "unit": "$",
+        "d": 12000
+      }
+    ],
+    "about": "In-game ad revenue estimates what rewarded and interstitial ads will earn across your player base. Solve for eCPM or impressions per player to see what a revenue goal demands.",
+    "formulaDisplay": "Ad revenue = Players × Ad impressions per player × (eCPM ÷ 1000)"
+  }
+]
