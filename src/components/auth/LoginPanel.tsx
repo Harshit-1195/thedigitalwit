@@ -222,6 +222,17 @@ export function LoginPanel() {
                 {busy === "email" ? "Sending…" : cooldown > 0 ? `Send again in ${cooldown}s` : "Email me a sign-in link"}
               </button>
             </form>
+            <p className="mt-6 text-xs text-muted">
+              By continuing you agree to the{" "}
+              <Link href="/terms" className="underline underline-offset-2 hover:text-ink">
+                terms of use
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-ink">
+                privacy policy
+              </Link>
+              .
+            </p>
           </>
         ) : (
           <>

@@ -47,7 +47,23 @@ export function Footer() {
       <div className="border-t border-white/15">
         <div className="wrap flex flex-col gap-2 py-5 text-sm text-white/60 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} thedigitalwit</p>
-          <p>Built for buyers and sellers alike.</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1">
+            <li>
+              <Link href="/privacy" className="underline-offset-4 hover:text-white hover:underline">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="underline-offset-4 hover:text-white hover:underline">
+                Terms
+              </Link>
+            </li>
+            <li>
+              <a href={`mailto:${SITE.contactEmail}`} className="underline-offset-4 hover:text-white hover:underline">
+                Contact
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

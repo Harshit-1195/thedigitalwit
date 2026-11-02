@@ -22,6 +22,8 @@ export const SITE_URL = (
 export const SITE = {
   name: "thedigitalwit",
   tagline: "The free reference hub for digital advertising.",
+  /** Shown on the privacy policy and terms; the only public contact route. */
+  contactEmail: "hello@thedigitalwit.com",
 } as const;
 
 export const PILLARS = {
@@ -98,6 +100,8 @@ export const ALL_PAGES: NavLink[] = [
   ...NAV_GROUPS.flatMap((g) => g.links),
   { href: "/login", label: "Log in", blurb: "Sign in to save scenarios and plans." },
   { href: "/saved", label: "My saved items", blurb: "Your saved calculator scenarios, media plans and GTM plans." },
+  { href: "/privacy", label: "Privacy policy", blurb: "What data thedigitalwit collects, why, and your rights." },
+  { href: "/terms", label: "Terms of use", blurb: "The rules for using thedigitalwit and its tools." },
 ];
 
 export function isActive(pathname: string, href: string) {
