@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { SearchEntry } from "@/lib/search";
 import { NAV_GROUPS, PILLARS, isActive, type NavGroup } from "@/lib/site";
 import { AccountMenu, MobileAccount } from "./auth/AccountMenu";
@@ -65,39 +66,47 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div id="mobile-menu" className="fixed inset-x-0 top-16 bottom-0 overflow-y-auto border-t border-ink/10 bg-white/90 backdrop-blur-xl lg:hidden">
-          <div className="wrap flex flex-col gap-8 py-6">
-            <HeaderSearch index={searchIndex} />
-            <nav aria-label="Main" className="flex flex-col gap-8">
-              <div className="grid grid-cols-2 gap-3">
-                <MobilePillar href={PILLARS.buy.href} label={PILLARS.buy.label} sell={false} />
-                <MobilePillar href={PILLARS.sell.href} label={PILLARS.sell.label} sell />
-              </div>
-              {NAV_GROUPS.map((g) => (
-                <div key={g.label}>
-                  <p className="eyebrow mb-3 text-muted">{g.label}</p>
-                  <ul className="border-t border-line">
-                    {g.links.map((l) => (
-                      <li key={l.href} className="border-b border-line">
-                        <Link
-                          href={l.href}
-                          aria-current={isActive(pathname, l.href) ? "page" : undefined}
-                          className="flex items-center justify-between py-3 font-display text-xl font-semibold tracking-tight aria-[current=page]:text-red"
-                        >
-                          {l.label}
-                          <span aria-hidden>→</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+      {/* Portalled to <body>: the header's backdrop-filter would otherwise trap this fixed panel inside the header's box. */}
+      {mobileOpen &&
+        createPortal(
+          <div
+            id="mobile-menu"
+            className="fixed inset-x-0 top-16 bottom-0 z-50 overflow-y-auto overscroll-contain border-t border-ink/10 bg-white/95 backdrop-blur-xl lg:hidden"
+            // Any link closes the menu, including one to the page already open (no route change to trigger the effect).
+            onClick={(e) => (e.target as HTMLElement).closest("a") && setMobileOpen(false)}
+          >
+            <div className="wrap flex flex-col gap-8 py-6">
+              <HeaderSearch index={searchIndex} />
+              <nav aria-label="Main" className="flex flex-col gap-8">
+                <div className="grid grid-cols-2 gap-3">
+                  <MobilePillar href={PILLARS.buy.href} label={PILLARS.buy.label} sell={false} />
+                  <MobilePillar href={PILLARS.sell.href} label={PILLARS.sell.label} sell />
                 </div>
-              ))}
-            </nav>
-            <MobileAccount />
-          </div>
-        </div>
-      )}
+                {NAV_GROUPS.map((g) => (
+                  <div key={g.label}>
+                    <p className="eyebrow mb-3 text-muted">{g.label}</p>
+                    <ul className="border-t border-line">
+                      {g.links.map((l) => (
+                        <li key={l.href} className="border-b border-line">
+                          <Link
+                            href={l.href}
+                            aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                            className="flex items-center justify-between py-3 font-display text-xl font-semibold tracking-tight aria-[current=page]:text-red"
+                          >
+                            {l.label}
+                            <span aria-hidden>→</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </nav>
+              <MobileAccount />
+            </div>
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }
