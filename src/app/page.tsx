@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CountUp } from "@/components/home/CountUp";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { Reveal } from "@/components/Reveal";
 import { ONE_LINERS } from "@/content/one-liners";
 import { BUY_CATEGORIES, COUNTS, SELL_CALCULATORS } from "@/lib/calculators/data";
+import { pageMetadata } from "@/lib/seo";
 import { NAV_GROUPS, PILLARS } from "@/lib/site";
+
+// Title and description come from the root layout; this adds the canonical URL and share card.
+export const metadata: Metadata = pageMetadata("/", {});
 
 const FORMULAS = [
   "CPM = (Spend ÷ Impressions) × 1000",

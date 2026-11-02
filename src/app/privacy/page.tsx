@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactEmail, LegalPage, List, Section, Sub } from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/privacy", {
   title: "Privacy policy",
   description: "What data thedigitalwit collects, why, who processes it, how long it is kept, and your rights wherever you live.",
-};
+});
 
 const UPDATED = "1 November 2026";
 

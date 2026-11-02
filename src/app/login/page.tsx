@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { LoginPanel } from "@/components/auth/LoginPanel";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/login", {
   title: "Log in",
   description: "Log in with Google, Microsoft or email to save calculator scenarios, media plans and GTM plans.",
-};
+}, { noindex: true });
 
 export default function LoginPage() {
   return (

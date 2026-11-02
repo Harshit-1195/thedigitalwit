@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/governance", {
   title: "Governance: AI in advertising",
   description:
     "How AI is used in media buying, disclosure norms, generative-creative policy by platform, and data and consent basics.",
-};
+});
 
 const LAST_REVIEWED = "October 2026";
 

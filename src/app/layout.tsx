@@ -4,9 +4,11 @@ import { AuthProvider } from "@/components/auth/AuthProvider";
 import { Backdrop } from "@/components/Backdrop";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { PrivacyRibbon } from "@/components/PrivacyRibbon";
 import { COUNTS } from "@/lib/calculators/data";
 import { buildSearchIndex } from "@/lib/search-index";
+import { BASE_OPEN_GRAPH, siteJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     `${COUNTS.total} free KPI calculators for media buyers and publishers, plus media mix modelling, GTM planning, creative specs and a 50-format Creative Studio. No login needed.`,
-  openGraph: { type: "website", siteName: "thedigitalwit", locale: "en_US" },
+  openGraph: BASE_OPEN_GRAPH,
   twitter: { card: "summary_large_image" },
 };
 
@@ -43,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <JsonLd data={siteJsonLd()} />
         <Backdrop />
         <AuthProvider>
           <Header searchIndex={buildSearchIndex()} />

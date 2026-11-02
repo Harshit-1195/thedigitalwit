@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactEmail, LegalPage, List, Section } from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/terms", {
   title: "Terms of use",
   description: "The rules for using thedigitalwit, its calculators, generators and AI features.",
-};
+});
 
 const UPDATED = "1 November 2026";
 
