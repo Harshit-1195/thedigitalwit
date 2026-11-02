@@ -119,10 +119,10 @@ export function HeaderSearch({ index, autoFocusShortcut = false }: { index: Sear
         placeholder={`Search ${calculatorCount} calculators…`}
         autoComplete="off"
         spellCheck={false}
-        className="h-10 w-full rounded-xl border-2 border-ink bg-white/70 pr-8 pl-9 text-sm placeholder:text-muted focus:bg-paper"
+        className="h-10 w-full rounded-xl border-2 border-ink bg-white/70 pr-3 pl-9 text-ellipsis xl:pr-8 text-sm placeholder:text-muted focus:bg-paper"
       />
       {autoFocusShortcut && !query && (
-        <kbd aria-hidden className="pointer-events-none absolute top-1/2 right-2.5 -translate-y-1/2 rounded-md border border-line bg-white px-1.5 font-mono text-xs text-muted">
+        <kbd aria-hidden className="pointer-events-none absolute top-1/2 hidden xl:block right-2.5 -translate-y-1/2 rounded-md border border-line bg-white px-1.5 font-mono text-xs text-muted">
           /
         </kbd>
       )}

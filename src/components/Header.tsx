@@ -30,21 +30,21 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
 
   return (
     <header data-side={side} className="sticky top-0 z-50 border-b border-ink/10 bg-white/70 backdrop-blur-xl backdrop-saturate-150">
-      <div className="wrap flex h-16 items-center gap-4 lg:h-[4.5rem]">
+      <div className="wrap flex h-16 items-center gap-4 lg:h-[4.5rem] lg:gap-3 xl:gap-4">
         <Link href="/" className="shrink-0" aria-label="thedigitalwit home">
           <Wordmark />
         </Link>
 
-        <nav aria-label="Main" className="ml-6 hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main" className="ml-6 hidden items-center gap-1 lg:ml-1 lg:flex lg:gap-0 xl:ml-6 xl:gap-1">
           <PillarLink href={PILLARS.buy.href} label={PILLARS.buy.label} tone="red" active={isActive(pathname, PILLARS.buy.href)} />
           <PillarLink href={PILLARS.sell.href} label={PILLARS.sell.label} tone="charcoal" active={isActive(pathname, PILLARS.sell.href)} />
-          <span aria-hidden className="mx-2 h-6 w-px bg-line" />
+          <span aria-hidden className="mx-1 h-6 w-px bg-line xl:mx-2" />
           {NAV_GROUPS.map((g) => (
             <NavDropdown key={g.label} group={g} pathname={pathname} />
           ))}
         </nav>
 
-        <div className="ml-auto hidden w-full max-w-64 lg:block">
+        <div className="ml-auto hidden w-full max-w-64 min-w-40 lg:block">
           <HeaderSearch index={searchIndex} autoFocusShortcut />
         </div>
 
@@ -107,13 +107,13 @@ function PillarLink({ href, label, tone, active }: { href: string; label: string
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className="group relative inline-flex h-10 items-center gap-2 px-3 font-display text-[0.95rem] font-semibold tracking-tight"
+      className="group relative inline-flex h-10 items-center gap-2 px-2 font-display whitespace-nowrap xl:px-3 text-[0.95rem] font-semibold tracking-tight"
     >
       <span aria-hidden className={`size-2 ${tone === "red" ? "bg-red" : "bg-charcoal"}`} />
       {label}
       <span
         aria-hidden
-        className={`absolute inset-x-3 -bottom-px h-0.5 origin-left transition-transform ${tone === "red" ? "bg-red" : "bg-charcoal"} ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+        className={`absolute inset-x-2 -bottom-px h-0.5 xl:inset-x-3 origin-left transition-transform ${tone === "red" ? "bg-red" : "bg-charcoal"} ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
       />
     </Link>
   );
@@ -171,7 +171,7 @@ function NavDropdown({ group, pathname }: { group: NavGroup; pathname: string })
         aria-expanded={open}
         aria-controls={menuId}
         onClick={() => setOpen((o) => !o)}
-        className={`inline-flex h-10 items-center gap-1.5 px-3 font-display text-[0.95rem] font-medium tracking-tight hover:text-accent-strong ${groupActive ? "text-accent-strong" : ""}`}
+        className={`inline-flex h-10 items-center gap-1.5 px-2 font-display whitespace-nowrap xl:px-3 text-[0.95rem] font-medium tracking-tight hover:text-accent-strong ${groupActive ? "text-accent-strong" : ""}`}
       >
         {group.label}
         <svg aria-hidden width="10" height="10" viewBox="0 0 10 10" className={`transition-transform ${open ? "rotate-180" : ""}`}>
