@@ -119,8 +119,9 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Browser storage</strong> for conveniences: tool settings and drafts (for example DoohSight and Media Mix
-            Model keys starting <code>doohsight-</code> or <code>mmm-</code>), the last email you used to sign in, and an
-            unsaved item kept while you sign in (keys starting <code>tdw:</code>).
+            Model keys starting <code>doohsight-</code> or <code>mmm-</code>), the last email you used to sign in, an
+            unsaved item kept while you sign in, and whether you&apos;ve closed the privacy notice (keys starting{" "}
+            <code>tdw:</code>).
           </li>
         </List>
         <p>

@@ -4,6 +4,7 @@ import { AuthProvider } from "@/components/auth/AuthProvider";
 import { Backdrop } from "@/components/Backdrop";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PrivacyRibbon } from "@/components/PrivacyRibbon";
 import { COUNTS } from "@/lib/calculators/data";
 import { buildSearchIndex } from "@/lib/search-index";
 import { SITE_URL } from "@/lib/site";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </AuthProvider>
+        <PrivacyRibbon />
       </body>
     </html>
   );
