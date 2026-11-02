@@ -7,7 +7,7 @@ export function safeNext(next: string | null | undefined, fallback = "/saved"): 
   return next;
 }
 
-export type LoginError = "link_expired" | "access_denied" | "rate_limited" | "invalid_code" | "provider_error" | "unknown";
+export type LoginError = "link_expired" | "access_denied" | "rate_limited" | "invalid_code" | "provider_error" | "email_failed" | "unknown";
 
 /** Maps Supabase / OAuth error codes and messages onto the states the login page shows. */
 export function classifyAuthError(code?: string | null, message?: string | null): LoginError {
@@ -15,10 +15,19 @@ export function classifyAuthError(code?: string | null, message?: string | null)
   const m = (message ?? "").toLowerCase();
   if (c === "otp_expired" || c === "flow_state_expired" || /expired|invalid or has expired/.test(m)) return "link_expired";
   if (c === "over_email_send_rate_limit" || c === "over_request_rate_limit" || /security purposes|rate limit/.test(m)) return "rate_limited";
+  if (/error sending .*email/.test(m)) return "email_failed";
   if (c === "otp_disabled" || /token|otp|code/.test(m)) return "invalid_code";
   if (c === "access_denied") return "access_denied";
   if (c.startsWith("provider") || /provider/.test(m)) return "provider_error";
   return "unknown";
+}
+
+export type Providers = { google: boolean; azure: boolean };
+
+/** Reads which OAuth providers are switched on from Supabase's public /auth/v1/settings response. */
+export function enabledProviders(settings: unknown): Providers {
+  const ext = (settings as { external?: Record<string, unknown> } | null)?.external ?? {};
+  return { google: ext.google === true, azure: ext.azure === true };
 }
 
 export const RESEND_COOLDOWN_SECONDS = 60;

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { classifyAuthError, cooldownFrom, isValidEmail, RESEND_COOLDOWN_SECONDS, safeNext, type LoginError } from "@/lib/auth/helpers";
+import { classifyAuthError, cooldownFrom, enabledProviders, isValidEmail, RESEND_COOLDOWN_SECONDS, safeNext, type LoginError, type Providers } from "@/lib/auth/helpers";
+import { SUPABASE_KEY, SUPABASE_URL } from "@/lib/supabase/config";
 import { getBrowserSupabase } from "@/lib/supabase/client";
 import { useAuth } from "./AuthProvider";
 
@@ -20,6 +21,10 @@ const ERROR_COPY: Record<LoginError, { title: string; body: string }> = {
   rate_limited: { title: "Please wait a moment", body: "Too many emails were requested. You can send another shortly." },
   invalid_code: { title: "That code didn't work", body: "Check you're using the code from the latest email, or send a new one." },
   provider_error: { title: "Sign-in didn't finish", body: "Google or Microsoft couldn't complete sign-in. Try again, or use your email instead." },
+  email_failed: {
+    title: "We couldn't send the email",
+    body: "Our email service didn't accept the message. Try again in a few minutes, or use another sign-in option.",
+  },
   unknown: { title: "Something went wrong", body: "We couldn't sign you in. Please try again." },
 };
 
@@ -34,6 +39,8 @@ export function LoginPanel() {
   const [busy, setBusy] = useState<string | null>(null);
   const [cooldown, setCooldown] = useState(0);
   const [fieldError, setFieldError] = useState<string | null>(null);
+  // Google and Microsoft buttons appear only once switched on in Supabase; null until known.
+  const [providers, setProviders] = useState<Providers | null>(null);
   const emailId = useId();
   const codeId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -58,6 +65,14 @@ export function LoginPanel() {
   }, [cooldown]);
 
   useEffect(() => headingRef.current?.focus(), [view]);
+
+  useEffect(() => {
+    if (!configured) return;
+    fetch(`${SUPABASE_URL}/auth/v1/settings`, { headers: { apikey: SUPABASE_KEY } })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((s) => setProviders(enabledProviders(s)))
+      .catch(() => setProviders({ google: true, azure: true }));
+  }, [configured]);
 
   const redirectTo = (path: string) => `${window.location.origin}${path}?next=${encodeURIComponent(next)}`;
 
@@ -137,6 +152,9 @@ export function LoginPanel() {
   }
 
   const disabled = !configured || busy !== null;
+  // Before sign-in is configured, show both buttons (disabled) so the page still explains itself.
+  const shown = configured ? providers ?? { google: false, azure: false } : { google: true, azure: true };
+  const anyOAuth = shown.google || shown.azure;
 
   return (
     <div className="glass overflow-hidden rounded-3xl">
@@ -162,26 +180,37 @@ export function LoginPanel() {
         {view === "choose" ? (
           <>
             <h2 ref={headingRef} tabIndex={-1} className="text-2xl font-bold tracking-[-0.03em] outline-none">
-              Continue with
+              {anyOAuth ? "Continue with" : "Sign in with your email"}
             </h2>
-            <div className="mt-4 grid gap-3">
-              <ProviderButton onClick={() => oauth("google")} disabled={disabled} busy={busy === "google"} icon={<GoogleIcon />}>
-                Continue with Google
-              </ProviderButton>
-              <ProviderButton onClick={() => oauth("azure")} disabled={disabled} busy={busy === "azure"} icon={<MicrosoftIcon />}>
-                Continue with Microsoft
-              </ProviderButton>
-              <p className="text-xs text-muted">Microsoft covers Outlook, Hotmail, Live and work or school accounts.</p>
-            </div>
+            {anyOAuth && (
+              <>
+                <div className="mt-4 grid gap-3">
+                  {shown.google && (
+                    <ProviderButton onClick={() => oauth("google")} disabled={disabled} busy={busy === "google"} icon={<GoogleIcon />}>
+                      Continue with Google
+                    </ProviderButton>
+                  )}
+                  {shown.azure && (
+                    <>
+                      <ProviderButton onClick={() => oauth("azure")} disabled={disabled} busy={busy === "azure"} icon={<MicrosoftIcon />}>
+                        Continue with Microsoft
+                      </ProviderButton>
+                      <p className="text-xs text-muted">Microsoft covers Outlook, Hotmail, Live and work or school accounts.</p>
+                    </>
+                  )}
+                </div>
 
-            <div className="my-6 flex items-center gap-3 text-sm text-muted" aria-hidden>
-              <span className="h-px flex-1 bg-line" />
-              or use your email
-              <span className="h-px flex-1 bg-line" />
-            </div>
+                <div className="my-6 flex items-center gap-3 text-sm text-muted" aria-hidden>
+                  <span className="h-px flex-1 bg-line" />
+                  or use your email
+                  <span className="h-px flex-1 bg-line" />
+                </div>
+              </>
+            )}
 
             <form
               noValidate
+              className={anyOAuth ? undefined : "mt-4"}
               onSubmit={(e) => {
                 e.preventDefault();
                 sendEmail();

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classifyAuthError, cooldownFrom, isValidEmail, RESEND_COOLDOWN_SECONDS, safeNext } from "./helpers";
+import { classifyAuthError, cooldownFrom, enabledProviders, isValidEmail, RESEND_COOLDOWN_SECONDS, safeNext } from "./helpers";
 
 describe("safeNext", () => {
   it("keeps same-site paths", () => {
@@ -24,6 +24,20 @@ describe("classifyAuthError", () => {
     expect(classifyAuthError(null, "Token has invalid format")).toBe("invalid_code");
     expect(classifyAuthError("access_denied")).toBe("access_denied");
     expect(classifyAuthError("weird")).toBe("unknown");
+  });
+  it("recognises a failed email send", () => {
+    expect(classifyAuthError("unexpected_failure", "Error sending confirmation email")).toBe("email_failed");
+    expect(classifyAuthError("unexpected_failure", "Error sending magic link email")).toBe("email_failed");
+  });
+});
+
+describe("enabledProviders", () => {
+  it("reads the switched-on providers", () => {
+    expect(enabledProviders({ external: { email: true, google: true, azure: false } })).toEqual({ google: true, azure: false });
+  });
+  it("treats missing or odd settings as off", () => {
+    expect(enabledProviders(null)).toEqual({ google: false, azure: false });
+    expect(enabledProviders({ external: { google: "yes" } })).toEqual({ google: false, azure: false });
   });
 });
 
